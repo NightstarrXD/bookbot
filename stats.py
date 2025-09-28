@@ -10,4 +10,15 @@ def count_characters(text):
             total[character] += 1
         else:
             total[character] = 1
-    print(total)
+    return total
+def sort_by_greatest(characters):
+    sorted_list = []
+    for character in characters:
+        character_count = {}
+        character_count["char"] = character
+        character_count["count"] = characters[character]
+        sorted_list.append(character_count)
+    def get_count(list):
+        return list["count"]
+    sorted_list.sort(reverse = True, key = get_count)
+    return sorted_list
