@@ -1,3 +1,7 @@
+import sys
+if len(sys.argv) != 2:
+    print("Usage: python3 main.py <path_to_book>")
+    sys.exit(1)
 def get_book_text(file):
     contents = None
     with open(file) as f:
@@ -7,12 +11,12 @@ from stats import count_words
 from stats import count_characters
 from stats import sort_by_greatest
 def main():
-    book_analized = get_book_text("books/frankenstein.txt")
+    book_analized = get_book_text(sys.argv[1])
     print(
         "==================== BookBot ===================="
     )
     print(
-        "Analyzing book found at books/frankenstein.txt..."
+        f"Analyzing book found at {sys.argv[1]}..."
     )
     print(
         "------------------ Word Count -------------------"
